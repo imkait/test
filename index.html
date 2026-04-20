@@ -20,28 +20,57 @@
         <p class="subtitle">按下按鈕，三顆骰子同步翻滾，看看今天手氣。</p>
 
         <div class="dice-wrap" role="group" aria-label="三顆骰子">
-          <div class="die" data-die="1" aria-label="第一顆骰子">
-            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
-            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
-            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          <div class="die-shell" aria-label="第一顆骰子">
+            <div class="die" data-die="1">
+              <div class="face face-1" data-face="1"><span class="pip"></span></div>
+              <div class="face face-2" data-face="2"><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-3" data-face="3"><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-4" data-face="4"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-5" data-face="5"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-6" data-face="6"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+            </div>
           </div>
-          <div class="die" data-die="2" aria-label="第二顆骰子">
-            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
-            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
-            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          <div class="die-shell" aria-label="第二顆骰子">
+            <div class="die" data-die="2">
+              <div class="face face-1" data-face="1"><span class="pip"></span></div>
+              <div class="face face-2" data-face="2"><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-3" data-face="3"><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-4" data-face="4"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-5" data-face="5"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-6" data-face="6"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+            </div>
           </div>
-          <div class="die" data-die="3" aria-label="第三顆骰子">
-            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
-            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
-            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          <div class="die-shell" aria-label="第三顆骰子">
+            <div class="die" data-die="3">
+              <div class="face face-1" data-face="1"><span class="pip"></span></div>
+              <div class="face face-2" data-face="2"><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-3" data-face="3"><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-4" data-face="4"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-5" data-face="5"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+              <div class="face face-6" data-face="6"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div>
+            </div>
           </div>
         </div>
 
-        <button id="rollButton" type="button" aria-live="polite">擲骰子</button>
+        <div class="controls">
+          <label class="rule-mode" for="ruleMode">規則模式</label>
+          <select id="ruleMode" name="ruleMode">
+            <option value="bigSmall" selected>大 / 小</option>
+            <option value="leopard">豹子判定</option>
+            <option value="both">綜合判定</option>
+          </select>
+          <button id="rollButton" type="button" aria-live="polite">擲骰子</button>
+        </div>
 
         <div class="result" aria-live="polite">
           <p id="faces">點數：- / - / -</p>
           <p id="total">總和：-</p>
+          <p id="ruleResult">判定：-</p>
+        </div>
+
+        <div class="history" aria-live="polite">
+          <h2>最近 10 次</h2>
+          <ol id="historyList"></ol>
         </div>
       </section>
     </main>
