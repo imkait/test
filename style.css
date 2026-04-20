@@ -8,7 +8,8 @@
   --accent: #ffb44f;
   --accent-strong: #ff7a29;
   --die-face: #fff9ec;
-  --pip: #1e1b16;
+  --pip-black: #141311;
+  --pip-red: #cc1c1c;
 }
 
 * {
@@ -135,11 +136,11 @@ h1 {
 
 .pip {
   width: 15%;
-  min-width: 9px;
-  max-width: 14px;
+  min-width: 10px;
+  max-width: 15px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background: var(--pip);
+  background: var(--pip-black);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.18);
 }
 
@@ -149,6 +150,14 @@ h1 {
 
 .face .pip.on {
   visibility: visible;
+}
+
+.face.red .pip.on {
+  background: radial-gradient(circle at 30% 30%, #ff6d6d 0 20%, var(--pip-red) 70%);
+}
+
+.face.black .pip.on {
+  background: radial-gradient(circle at 30% 30%, #505050 0 14%, var(--pip-black) 68%);
 }
 
 .die.rolling {

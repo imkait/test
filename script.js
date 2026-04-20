@@ -8,6 +8,7 @@ const historyList = document.getElementById('historyList');
 
 const historyRecords = [];
 let lastFinalFaces = null;
+const redFaceValues = [1, 4];
 
 const faceRotationMap = {
   1: 'rotateX(0deg) rotateY(0deg)',
@@ -31,7 +32,20 @@ function randomFace() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
+function buildFacePips(faceEl) {
+  faceEl.innerHTML = '';
+  for (let i = 0; i < 9; i += 1) {
+    const pip = document.createElement('span');
+    pip.className = 'pip';
+    pip.setAttribute('aria-hidden', 'true');
+    faceEl.appendChild(pip);
+  }
+}
+
 function paintFace(faceEl, value) {
+  faceEl.classList.toggle('red', redFaceValues.includes(value));
+  faceEl.classList.toggle('black', !redFaceValues.includes(value));
+
   const pips = Array.from(faceEl.querySelectorAll('.pip'));
   pips.forEach((pip, index) => {
     pip.classList.toggle('on', facePatterns[value].includes(index));
@@ -184,6 +198,11 @@ function setFaces(values, shouldRecord = true) {
 
 function resetFaceMap() {
   diceElements.forEach((dieEl) => {
+    const faceElements = Array.from(dieEl.querySelectorAll('.face'));
+    faceElements.forEach((faceEl) => {
+      buildFacePips(faceEl);
+    });
+
     paintDie(dieEl);
   });
 }
