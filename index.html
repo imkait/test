@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三骰擲點</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="stage">
+      <section class="panel" aria-labelledby="title">
+        <p class="eyebrow">Dice Lab</p>
+        <h1 id="title">三顆骰子，一鍵開擲</h1>
+        <p class="subtitle">按下按鈕，三顆骰子同步翻滾，看看今天手氣。</p>
+
+        <div class="dice-wrap" role="group" aria-label="三顆骰子">
+          <div class="die" data-die="1" aria-label="第一顆骰子">
+            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          </div>
+          <div class="die" data-die="2" aria-label="第二顆骰子">
+            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          </div>
+          <div class="die" data-die="3" aria-label="第三顆骰子">
+            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+            <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          </div>
+        </div>
+
+        <button id="rollButton" type="button" aria-live="polite">擲骰子</button>
+
+        <div class="result" aria-live="polite">
+          <p id="faces">點數：- / - / -</p>
+          <p id="total">總和：-</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
